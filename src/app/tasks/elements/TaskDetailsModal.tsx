@@ -372,7 +372,13 @@ export default function TaskDetailsModal({
                 <>
                   <div className="mb-4 flex items-start gap-2.5">
                     <PersonAvatar
-                      person={{ id: "me", name: "You", initials: "AT", gradient: "from-rose-400 to-orange-400" }}
+                      person={{
+                        id: "me",
+                        name: "You",
+                        initials: "AT",
+                        gradient: "from-rose-400 to-orange-400",
+                        image: "/assets/image1.png",
+                      }}
                       size={30}
                     />
                     <div className="flex-1 rounded-xl border border-gray-100 bg-gray-50 p-2">

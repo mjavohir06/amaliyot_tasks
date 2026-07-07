@@ -1,4 +1,4 @@
-export type Avatar = { gradient: string; initials: string };
+export type Avatar = { gradient: string; initials: string; image?: string };
 
 export type Subtask = { title: string; done: boolean };
 
@@ -7,6 +7,7 @@ export type Person = {
   name: string;
   initials: string;
   gradient: string;
+  image?: string;
 };
 
 export type Label = {
@@ -68,17 +69,31 @@ export type Column = {
   cards: Card[];
 };
 
+const avatarImages: Record<string, string> = {
+  AT: "/assets/4.jpg",
+  BN: "/assets/2.jpg",
+  JH: "/assets/4.jpg",
+  JS: "/assets/2.jpg",
+  JW: "/assets/4.jpg",
+  MK: "/assets/5.jpg",
+  RC: "/assets/2.jpg",
+  RL: "/assets/5.jpg",
+  SB: "/assets/4.jpg",
+  TQ: "/assets/5.jpg",
+};
+
 const av = (gradient: string, initials: string): Avatar => ({
   gradient,
   initials,
+  image: avatarImages[initials],
 });
 
 export const people: Person[] = [
-  { id: "jane", name: "Jane Wilson", initials: "JW", gradient: "from-rose-400 to-orange-400" },
-  { id: "jacob", name: "Jacob Hawkins", initials: "JH", gradient: "from-sky-400 to-indigo-400" },
-  { id: "regina", name: "Regina Cooper", initials: "RC", gradient: "from-orange-400 to-red-400" },
-  { id: "shane", name: "Shane Black", initials: "SB", gradient: "from-indigo-400 to-sky-400" },
-  { id: "raul", name: "Raul Lopez", initials: "RL", gradient: "from-amber-400 to-rose-400" },
+  { id: "jane", name: "Jane Wilson", initials: "JW", gradient: "from-rose-400 to-orange-400", image: avatarImages.JW },
+  { id: "jacob", name: "Jacob Hawkins", initials: "JH", gradient: "from-sky-400 to-indigo-400", image: avatarImages.JH },
+  { id: "regina", name: "Regina Cooper", initials: "RC", gradient: "from-orange-400 to-red-400", image: avatarImages.RC },
+  { id: "shane", name: "Shane Black", initials: "SB", gradient: "from-indigo-400 to-sky-400", image: avatarImages.SB },
+  { id: "raul", name: "Raul Lopez", initials: "RL", gradient: "from-amber-400 to-rose-400", image: avatarImages.RL },
 ];
 
 export const labelColorOptions: string[] = [
@@ -133,7 +148,7 @@ export const columns: Column[] = [
         title: "New Header Image",
         date: "Jun 17",
         tagColors: ["bg-emerald-400", "bg-gray-200"],
-        image: "from-orange-300 via-rose-400 to-purple-900",
+        image: "/assets/image1.png",
         attachments: 1,
         comments: 3,
         avatars: [av("from-amber-400 to-rose-400", "RL")],
@@ -242,9 +257,9 @@ export const columns: Column[] = [
         date: "Jun 17",
         tagColors: ["bg-emerald-400", "bg-gray-200"],
         images: [
-          "from-rose-200 to-orange-200",
-          "from-teal-300 to-emerald-500",
-          "from-sky-200 via-purple-200 to-rose-200",
+          "/assets/image1.png",
+          "/assets/3.jpg",
+          "/assets/3.jpg",
         ],
         attachments: 3,
         comments: 2,
@@ -274,7 +289,7 @@ export const columns: Column[] = [
         title: "New Background",
         date: "Jun 17",
         tagColors: ["bg-emerald-400", "bg-gray-200"],
-        image: "from-teal-400 via-sky-600 to-indigo-900",
+        image: "/assets/3.jpg",
         attachments: 1,
         comments: 2,
         avatars: [av("from-amber-400 to-rose-400", "RL")],

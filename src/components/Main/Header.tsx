@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu, Search, Bell, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -41,8 +42,14 @@ export default function Header() {
             onClick={() => setOpen((v) => !v)}
             className="flex items-center gap-2 rounded-lg py-1.5 pl-1 pr-2 transition-colors hover:bg-gray-50"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-orange-400 text-xs font-semibold text-white">
-              AT
+            <span className="relative h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+              <Image
+                src="/assets/image1.png"
+                alt="ArtTemplate"
+                fill
+                sizes="32px"
+                className="object-cover"
+              />
             </span>
             <span className="text-sm font-medium text-gray-700">
               ArtTemplate

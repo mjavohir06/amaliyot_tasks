@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search, Check, Plus } from "lucide-react";
+import Image from "next/image";
 import Dropdown from "@/components/Main/Dropdown";
 import { people, type Person } from "../data";
 
@@ -11,6 +12,23 @@ interface AssignToPickerProps {
 }
 
 function PersonAvatar({ person, size = 28 }: { person: Person; size?: number }) {
+  if (person.image) {
+    return (
+      <span
+        style={{ width: size, height: size }}
+        className="relative shrink-0 overflow-hidden rounded-full border-2 border-white bg-gray-100"
+      >
+        <Image
+          src={person.image}
+          alt={person.name}
+          fill
+          sizes={`${size}px`}
+          className="object-cover"
+        />
+      </span>
+    );
+  }
+
   return (
     <span
       style={{ width: size, height: size, fontSize: size * 0.34 }}
